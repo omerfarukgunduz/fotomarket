@@ -62,7 +62,7 @@
             .sidebar a {
                 display: block;
                 color: rgb(0, 0, 0);
-                padding: 10px;
+                padding: 9px;
                 text-decoration: none;
                 text-align: left;
             }
@@ -89,7 +89,10 @@
 
     <div class="sidebar">
 
-        <a href=""><i class="fas fa-user"></i>Admin Adı</a>
+        @if (Session["AdminKullaniciAdi"] != null)
+        {
+            <a href="#"><i class="fas fa-user"></i> Hoşgeldin @Session["AdminKullaniciAdi"]</a>
+        }        
         <a href="/DslrMakineler/Index/"><i class="fas fa-camera"></i> DSLR Makineler</a>
         <a href="/AynasizMakineler/Index/"><i class="fas fa-camera-retro"></i> Aynasız Makineler</a>
         <a href="/VideoKameralar/Index/"><i class="fas fa-video"></i> Video Kameralar</a>

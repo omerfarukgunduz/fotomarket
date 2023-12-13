@@ -8,6 +8,8 @@ using System.Web.Security;
 
 namespace fotomarket.Controllers
 {
+    [AllowAnonymous]
+
     public class KullaniciLoginController : Controller
     {
         // GET: KullaniciLogin
@@ -22,18 +24,20 @@ namespace fotomarket.Controllers
         [HttpPost]
         public ActionResult Index(Table_Kullanicilar k)
         {
-            var kullanici = data.Table_Kullanicilar.FirstOrDefault(x => x.Eposta == x.Eposta && x.Sifre == x.Sifre);
+            var kullanici = data.Table_Kullanicilar.FirstOrDefault(x => x.Eposta == k.Eposta && x.Sifre == k.Sifre);
             if (kullanici != null)
             {
                 FormsAuthentication.SetAuthCookie(kullanici.Eposta, false);
                 Session["Eposta"] = kullanici.Eposta.ToString();
+                Session["KullanciAdi"] = kullanici.AdSoyad;
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                return RedirectToAction("Index","KullaniciLogin");
+                return RedirectToAction("Index", "KullaniciLogin");
             }
         }
+
 
         public ActionResult LogOut()
         {

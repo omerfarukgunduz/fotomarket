@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace fotomarket.Controllers
 {
+    [AllowAnonymous]
     public class AdminLoginController : Controller
     {
         // GET: AdminLogin
@@ -22,11 +23,11 @@ namespace fotomarket.Controllers
         [HttpPost]
         public ActionResult Index(Table_Admin a)
         {
-            var adminkullanici = data.Table_Admin.FirstOrDefault(x => x.AdminKullaniciAdi == a.AdminKullaniciAdi && x.Sifre == a.Sifre);
-            if (adminkullanici != null)
+            var kullanici = data.Table_Admin.FirstOrDefault(x => x.AdminKullaniciAdi == a.AdminKullaniciAdi && x.Sifre == a.Sifre);
+            if (kullanici != null)
             {
-                FormsAuthentication.SetAuthCookie(adminkullanici.AdminKullaniciAdi, false);
-                Session["AdminKullaniciAdi"] = adminkullanici.AdminKullaniciAdi.ToString();
+                FormsAuthentication.SetAuthCookie(kullanici.AdminKullaniciAdi, false);
+                Session["AdminKullaniciAdi"] = kullanici.AdminKullaniciAdi.ToString();
                 return RedirectToAction("Index", "DslrMakineler");
             }
             else

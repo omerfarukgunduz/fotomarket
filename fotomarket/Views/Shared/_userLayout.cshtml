@@ -56,28 +56,38 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/Home/Lensler">Lensler</a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/KullaniciLogin/Index">
-                        <i class="fas fa-user"></i> Giriş Yap
-                    </a>
+                    @if (Session["KullanciAdi"] != null)
+                    {
+                        <span class="nav-link"><i class="fas fa-user"></i> @Session["KullanciAdi"]</span>
+                    }
+                    else
+                    {
+                        <a class="nav-link" href="/KullaniciLogin/Index">
+                            <i class="fas fa-user"></i> Giriş Yap
+                        </a>
+                    }
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/KullaniciKayit/Kayit">
-                        <i class="fas fa-user"></i> Kayıt Ol
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-shopping-cart"></i> Sepet
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/KullaniciLogin/LogOut/">
-                        <i class="fas fa-sign-out-alt"></i> Çıkış
-                    </a>
-                </li>
-            </ul>
+                @if (Session["KullanciAdi"] == null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/KullaniciKayit/Kayit">
+                            <i class="fas fa-user"></i> Kayıt Ol
+                        </a>
+                    </li>
+                        }
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-shopping-cart"></i> Sepet
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/KullaniciLogin/LogOut/">
+                            <i class="fas fa-sign-out-alt"></i> Çıkış
+                        </a>
+                    </li>
+                </ul>
         </div>
     </nav>
 

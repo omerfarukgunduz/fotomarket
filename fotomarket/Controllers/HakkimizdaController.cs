@@ -7,6 +7,8 @@ using System.Web.Mvc;
 
 namespace fotomarket.Controllers
 {
+    [AllowAnonymous]
+
     public class HakkimizdaController : Controller
     {
         // GET: Hakkimizda
