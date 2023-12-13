@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea9eb4b35615423a95c4c3b2c4abc561" Name="Diagram1">
+        <EntityTypeShape EntityType="fotomarketModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Admin" Width="1.5" PointX="5.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_AksiyonKameralari" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_AynasizFotografMakineleri" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_CokSatanlar" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Dronelar" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_DSLRFotografMakineleri" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Hakkimizda" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Iletisim" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_IletisimBilgileri" Width="1.5" PointX="8" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Kaynaklar" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Kullanicilar" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Lensler" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Markalar" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_VideoKameralar" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="fotomarketModel.Table_Videolar" Width="1.5" PointX="8" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_Hakkimizda_Table_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_IletisimBilgileri_Table_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_Videolar_Table_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_AksiyonKameralari_Table_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_CokSatanlar_Table_AksiyonKameralari" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_AynasizFotografMakineleri_Table_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_CokSatanlar_Table_AynasizFotografMakineleri" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_CokSatanlar_Table_Dronelar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_CokSatanlar_Table_DSLRFotografMakineleri" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_CokSatanlar_Table_Lensler" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_CokSatanlar_Table_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_CokSatanlar_Table_VideoKameralar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_Dronelar_Table_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_DSLRFotografMakineleri_Table_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_Lensler_Table_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_VideoKameralar_Table_Markalar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

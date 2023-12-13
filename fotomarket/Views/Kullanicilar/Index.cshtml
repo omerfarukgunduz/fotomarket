@@ -1,0 +1,45 @@
+﻿@using fotomarket.Models
+@model List<Table_Kullanicilar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<div style="text-align: center; margin-top: 0px;">
+    <h2>Kullanıcı Yönetimi </h2>
+</div>
+
+<div class="container">
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Kullanıcı Adı</th>
+                    <th scope="col">Ad Soyad</th>
+                    <th scope="col">E-posta</th>
+                    <th scope="col">Sifre</th>
+                    <th scope="col">Cep Telefonu</th>
+                    <th scope="col">TC Kimlik No</th>
+                    <th scope="col">Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+
+                        <th scope="col">@x.ID</th>
+                        <th scope="col">@x.KullanciAdi</th>
+                        <th scope="col">@x.AdSoyad</th>
+                        <th scope="col">@x.Eposta</th>
+                        <th scope="col">@x.Sifre</th>
+                        <th scope="col">@x.CepTelefonu</th>
+                        <th scope="col">@x.TC</th>
+                        <th><a href="/Kullanicilar/KullaniciSil/@x.ID" class="btn btn-danger sil">Sil</a></th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

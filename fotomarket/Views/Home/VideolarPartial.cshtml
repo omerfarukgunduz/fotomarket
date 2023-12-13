@@ -1,0 +1,28 @@
+﻿@using fotomarket.Models
+@model List<fotomarket.Models.Table_Videolar>
+<link href="/Tasarim/css/index.css" rel="stylesheet" />
+<div class="videos container mt-4">
+    <h2 class="text-center">ALIŞVERİŞE BAŞLAMADAN ÖNCE !</h2>
+    <br />
+    <div class="row">
+        @foreach(var x in Model)
+        {
+        <div class="col-md-4 mb-4 new-videos">
+            <div class="card">
+                <div class="card-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560"
+                                height="315"
+                                src="@x.VideoSrcLinki"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+
+    </div>
+</div>

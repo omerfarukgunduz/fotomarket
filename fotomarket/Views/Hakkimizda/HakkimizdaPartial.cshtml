@@ -1,0 +1,9 @@
+﻿@using fotomarket.Models
+@model List<fotomarket.Models.Table_Hakkimizda>
+
+@foreach (var x in Model)
+{
+    <p>
+        @x.HakkimizdaMetni
+    </p>
+}

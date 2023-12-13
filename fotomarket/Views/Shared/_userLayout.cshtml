@@ -1,0 +1,119 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fotomarket.com</title>
+    <link rel="icon" type="image/x-icon" href="https://i.hizliresim.com/rjikwgb.png" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="/Tasarim/css/index.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/Home/Index">
+            <img class="logo"
+                 src="https://i.hizliresim.com/rjikwgb.png"
+                 alt="Logo"
+                 width="66"
+                 height="66" />
+        </a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Index">Ana Sayfa <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/DslrFotografMakineleri">DSLR Fotoğraf Makineleri</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/AynasizFotografMakineleri">Aynasız Fotoğraf Makineleri </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/VideoKameralar">Video Kameralar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/AksiyonKameralari">Aksiyon Kameraları</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Dronelar">Dronelar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Lensler">Lensler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/KullaniciLogin/Index">
+                        <i class="fas fa-user"></i> Giriş Yap
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/KullaniciKayit/Kayit">
+                        <i class="fas fa-user"></i> Kayıt Ol
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-cart"></i> Sepet
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/KullaniciLogin/LogOut/">
+                        <i class="fas fa-sign-out-alt"></i> Çıkış
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+    @RenderBody()
+    </section>
+
+
+
+
+
+
+    <!-- Footer ------------------------------------------------------------------>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <a href="hakkimizda.html" class="text-decoration-none">
+                        <h5 class="m-0 p-0" style="color: rgb(220, 251, 110)">
+                            Hakkımızda
+                        </h5>
+                    </a>
+                    @Html.Action("HakkimizdaPartial")
+                </div>
+                <div class="col-md-6 text-right">
+                    <h5>İletişim</h5>
+                    @Html.Action("IletisimBilgileriPartial")
+
+                </div>
+            </div>
+            <p class="text-center">&copy; 2023 FotoMarket</p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

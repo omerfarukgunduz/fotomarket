@@ -1,0 +1,100 @@
+﻿@using fotomarket.Models
+@model List<Table_Iletisim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+
+<div class="container">
+    <h2>Gelen Mesajlar</h2>
+    <div class="messages">
+        @foreach(var x in Model)
+        {
+        <div class="message">
+            <div class="message-header">
+                <h2>@x.AdSoyad - @x.MesajKonusu</h2>
+                <p><i class="fas fa-envelope email-icon"></i> @x.Eposta</p>
+            </div>
+            <div class="message-content">
+                <p>@x.Mesaj</p>
+            </div>
+            <div class="message-buttons">
+                <a href="mailto:@x.Eposta" class="btn btn-primary">Cevapla </a>
+                <span style="margin-right: 10px;"></span>
+                <a data-id="@x.ID" href="/Mesajlar/MesajSil/@x.ID" class="btn btn-danger sil">Sil</a>
+
+            </div>
+        </div>
+        }
+    </div>
+</div>
+<style>
+
+    .container {
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .messages {
+        margin-top: 20px;
+    }
+
+    .message {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .message-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .message-content {
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    .message-buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+        .message-buttons button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+    .delete-btn {
+        background-color: #ff5050;
+        color: white;
+    }
+
+    .reply-btn {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .email-icon {
+        margin-right: 5px;
+    }
+</style>

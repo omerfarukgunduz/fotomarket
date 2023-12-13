@@ -1,0 +1,112 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <title>Admin Girişi</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <div class="navbar">
+        <a href="/Home/Index" class="active">
+            <img src="https://i.hizliresim.com/rjikwgb.png"
+                 alt="Logo"
+                 title="Logo" />
+        </a>
+    </div>
+    <div class="main">
+        <h2>ADMİN PANELİNE HOŞGELDİNİZ</h2>
+        <form method="post" class="signin-form">
+            <div class="form-group">
+                <input type="text" class="form-control" name="AdminKullaniciAdi" placeholder="Kullanıcı Adı" required>
+            </div>
+            <div class="form-group">
+                <input id="password-field" type="password" class="form-control" name="Sifre" placeholder="Şifre" required>
+                <span toggle="#password-field" class="toggle-password"></span>
+            </div>
+            <div class="form-group">
+                <button  type="submit" class="form-control btn btn-primary submit px-3">Giriş Yap</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        background: rgb(220, 251, 110);
+    }
+
+    .navbar {
+        background-color: #000000;
+        overflow: hidden;
+        margin: -8;
+        margin-bottom: 0;
+        text-align: center;
+        color: white;
+    }
+
+        .navbar a {
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+            .navbar a.active {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+                .navbar a.active img {
+                    height: 47;
+                    margin: 10px;
+                }
+
+    .main {
+        margin-top: 170px;
+        color: rgb(0, 0, 0);
+        text-align: center;
+    }
+
+        .main h2 {
+            font-family: Arial, sans-serif; 
+        }
+
+        .main input {
+            height: 50px;
+            width: 350px;
+            border-radius: 5px;
+            padding-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        .main button {
+            height: 50px;
+            width: 350px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: rgb(81, 81, 81);
+            border: 2px solid black;
+            color: rgb(255, 255, 255);
+            transition: all 0.3s ease;
+            font-weight: bold; 
+            font-size: 18px; 
+        }
+
+            .main button:hover {
+                background-color: rgb(220, 251, 110); 
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+                color: black; 
+            }
+
+        .main a {
+            color: aqua;
+            font-weight: bold;
+            text-decoration: none;
+            width: 350px;
+            overflow: hidden;
+        }
+</style>

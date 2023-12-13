@@ -1,0 +1,57 @@
+﻿@using fotomarket.Models
+@model List<Table_CokSatanlar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div style="text-align: center;">
+    <h2>Çok Satanlar Sayfası</h2>
+</div>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <th scope="row">ID</th>
+                        <td>@x.ID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ürün ID</th>
+                        <td>@x.UrunID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Marka ID</th>
+                        <td>@x.MarkaID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Marka Adı</th>
+                        <td>@x.MarkaAdi</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Model Adı</th>
+                        <td>@x.ModelAdi</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fiyat</th>
+                        <td>@x.UrunFiyati</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Görsel</th>
+                        <td><a href="@x.UrunGorseli" target="_blank">@x.UrunGorseli</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Güncelle</th>
+                        <td><a href="/CokSatanlar/UrunGetir/@x.ID" class="btn btn-warning">Güncelle</a></td>
+                    </tr>
+                    
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br />

@@ -1,0 +1,35 @@
+﻿@using fotomarket.Models
+@model List<Table_Dronelar>
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+}
+<link href="/Tasarim/css/index.css" rel="stylesheet" />
+<style>
+    .page-title {
+        margin-top: 100px;
+    }
+</style>
+<div class="content container mt-4">
+    <h2 class="text-center page-title">DRONELAR</h2>
+    <br />
+    <div class="row">
+        @foreach (var x in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="@x.UrunGorseli"
+                         class="card-img-top"
+                         alt="Ürün 1" />
+                    <div class="card-body">
+                        <h5 class="card-title">@x.MarkaAdi</h5>
+                        <p class="card-text">@x.ModelAdi</p>
+                        <p class="card-text">Fiyat: @x.UrunFiyati TL</p>
+                        <a href="#" class="btn btn-primary btn-block">Satın Al</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

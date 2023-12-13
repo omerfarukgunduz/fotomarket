@@ -1,0 +1,122 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="https://i.hizliresim.com/rjikwgb.png" />
+
+    <title>Kullanıcı Girişi</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand d-flex justify-content-center">
+            <a href="/Home/Index">
+                <img src="https://i.hizliresim.com/rjikwgb.png" width="60" height="60" class="d-inline-block align-top img-fluid" alt="Logo" style=" margin-top: -20px;">
+            </a>
+        </div>
+    </nav>
+    <div class="main">
+        <h2>FOTOMARKETE HOŞGELDİNİZ !</h2>
+        <form method="post" class="signin-form">
+            <div class="form-group">
+                <h3>E-posta:</h3> 
+                <input type="email" class="form-control" name="Eposta" placeholder="E-posta" required>
+            </div>
+            <div class="form-group">
+                <h3>Şifre:</h3> 
+                <input id="password-field" type="password" class="form-control" name="Sifre" placeholder="Şifre" required>
+                <span toggle="#password-field" class="toggle-password"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="form-control btn btn-primary submit px-3">Giriş Yap</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        background: rgb(220, 251, 110);
+    }
+
+    .navbar {
+        height: 60px;
+        background-color: #000000;
+        overflow: hidden;
+        margin: 0;
+        margin-bottom: 0;
+        text-align: center;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .navbar a {
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+            .navbar a.active img {
+                height: 55px;
+                margin: -15px;
+                margin-bottom: 0px !important;
+            }
+
+
+    .main {
+        margin-top: 170px;
+        color: rgb(0, 0, 0);
+        text-align: center;
+    }
+
+        .main h2 {
+            font-family: Arial, sans-serif;
+        }
+
+        .main input {
+            height: 50px;
+            width: 350px;
+            border-radius: 5px;
+            padding-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        .main button {
+            height: 50px;
+            width: 350px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: rgb(81, 81, 81);
+            border: 2px solid black;
+            color: rgb(255, 255, 255);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+            .main button:hover {
+                background-color: rgb(220, 251, 110);
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+                color: black;
+            }
+
+        .main a {
+            color: aqua;
+            font-weight: bold;
+            text-decoration: none;
+            width: 350px;
+            overflow: hidden;
+        }
+</style>

@@ -1,0 +1,1109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="fotomarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Table_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminKullaniciAdi" Type="varchar" MaxLength="50" />
+          <Property Name="Sifre" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Table_AksiyonKameralari">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaID" Type="int" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="30" />
+          <Property Name="ModelAdi" Type="varchar" MaxLength="80" />
+          <Property Name="UrunFiyati" Type="nchar" MaxLength="6" />
+          <Property Name="UrunGorseli" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_AynasizFotografMakineleri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaID" Type="int" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="30" />
+          <Property Name="ModelAdi" Type="varchar" MaxLength="80" />
+          <Property Name="UrunFiyati" Type="nchar" MaxLength="6" />
+          <Property Name="UrunGorseli" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_CokSatanlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UrunID" Type="int" />
+          <Property Name="MarkaID" Type="int" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="30" />
+          <Property Name="ModelAdi" Type="varchar" MaxLength="80" />
+          <Property Name="UrunFiyati" Type="nchar" MaxLength="6" />
+          <Property Name="UrunGorseli" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_Dronelar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaID" Type="int" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="30" />
+          <Property Name="ModelAdi" Type="varchar" MaxLength="80" />
+          <Property Name="UrunFiyati" Type="nchar" MaxLength="6" />
+          <Property Name="UrunGorseli" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_DSLRFotografMakineleri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaID" Type="int" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="30" />
+          <Property Name="ModelAdi" Type="varchar" MaxLength="80" />
+          <Property Name="UrunFiyati" Type="nchar" MaxLength="6" />
+          <Property Name="UrunGorseli" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_Hakkimizda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminID" Type="int" />
+          <Property Name="HakkimizdaMetni" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_Iletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MesajKonusu" Type="varchar" MaxLength="50" />
+          <Property Name="Eposta" Type="varchar" MaxLength="50" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Mesaj" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_IletisimBilgileri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminID" Type="int" />
+          <Property Name="TelefonNumarasi" Type="nchar" MaxLength="20" />
+          <Property Name="EpostaAdresi" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Kaynaklar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Linkler" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_Kullanicilar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullanciAdi" Type="varchar" MaxLength="40" />
+          <Property Name="Eposta" Type="varchar" MaxLength="50" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="30" />
+          <Property Name="TC" Type="nvarchar" MaxLength="11" />
+          <Property Name="CepTelefonu" Type="nvarchar" MaxLength="10" />
+          <Property Name="Sifre" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Table_Lensler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaID" Type="int" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="30" />
+          <Property Name="ModelAdi" Type="varchar" MaxLength="80" />
+          <Property Name="UrunFiyati" Type="nchar" MaxLength="6" />
+          <Property Name="UrunGorseli" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_Markalar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Table_VideoKameralar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaID" Type="int" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="30" />
+          <Property Name="ModelAdi" Type="varchar" MaxLength="80" />
+          <Property Name="UrunFiyati" Type="nchar" MaxLength="6" />
+          <Property Name="UrunGorseli" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table_Videolar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminID" Type="int" />
+          <Property Name="VideoSrcLinki" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_Table_AksiyonKameralari_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_AksiyonKameralari" Type="Self.Table_AksiyonKameralari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_AksiyonKameralari">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_AynasizFotografMakineleri_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_AynasizFotografMakineleri" Type="Self.Table_AynasizFotografMakineleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_AynasizFotografMakineleri">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_AksiyonKameralari">
+          <End Role="Table_AksiyonKameralari" Type="Self.Table_AksiyonKameralari" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_AksiyonKameralari">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_AynasizFotografMakineleri">
+          <End Role="Table_AynasizFotografMakineleri" Type="Self.Table_AynasizFotografMakineleri" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_AynasizFotografMakineleri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_Dronelar">
+          <End Role="Table_Dronelar" Type="Self.Table_Dronelar" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Dronelar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_DSLRFotografMakineleri">
+          <End Role="Table_DSLRFotografMakineleri" Type="Self.Table_DSLRFotografMakineleri" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_DSLRFotografMakineleri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_Lensler">
+          <End Role="Table_Lensler" Type="Self.Table_Lensler" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Lensler">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_VideoKameralar">
+          <End Role="Table_VideoKameralar" Type="Self.Table_VideoKameralar" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_VideoKameralar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Dronelar_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_Dronelar" Type="Self.Table_Dronelar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Dronelar">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DSLRFotografMakineleri_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_DSLRFotografMakineleri" Type="Self.Table_DSLRFotografMakineleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_DSLRFotografMakineleri">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Hakkimizda_Table_Admin">
+          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+          <End Role="Table_Hakkimizda" Type="Self.Table_Hakkimizda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Hakkimizda">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_IletisimBilgileri_Table_Admin">
+          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+          <End Role="Table_IletisimBilgileri" Type="Self.Table_IletisimBilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_IletisimBilgileri">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Lensler_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_Lensler" Type="Self.Table_Lensler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Lensler">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_VideoKameralar_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_VideoKameralar" Type="Self.Table_VideoKameralar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_VideoKameralar">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Videolar_Table_Admin">
+          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+          <End Role="Table_Videolar" Type="Self.Table_Videolar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Videolar">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fotomarketModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Admin" EntityType="Self.Table_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_AksiyonKameralari" EntityType="Self.Table_AksiyonKameralari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_AynasizFotografMakineleri" EntityType="Self.Table_AynasizFotografMakineleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_CokSatanlar" EntityType="Self.Table_CokSatanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Dronelar" EntityType="Self.Table_Dronelar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_DSLRFotografMakineleri" EntityType="Self.Table_DSLRFotografMakineleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Hakkimizda" EntityType="Self.Table_Hakkimizda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Iletisim" EntityType="Self.Table_Iletisim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_IletisimBilgileri" EntityType="Self.Table_IletisimBilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Kaynaklar" EntityType="Self.Table_Kaynaklar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Kullanicilar" EntityType="Self.Table_Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Lensler" EntityType="Self.Table_Lensler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Markalar" EntityType="Self.Table_Markalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_VideoKameralar" EntityType="Self.Table_VideoKameralar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Videolar" EntityType="Self.Table_Videolar" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Table_AksiyonKameralari_Table_Markalar" Association="Self.FK_Table_AksiyonKameralari_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_AksiyonKameralari" EntitySet="Table_AksiyonKameralari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_AynasizFotografMakineleri_Table_Markalar" Association="Self.FK_Table_AynasizFotografMakineleri_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_AynasizFotografMakineleri" EntitySet="Table_AynasizFotografMakineleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_AksiyonKameralari" Association="Self.FK_Table_CokSatanlar_Table_AksiyonKameralari">
+            <End Role="Table_AksiyonKameralari" EntitySet="Table_AksiyonKameralari" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_AynasizFotografMakineleri" Association="Self.FK_Table_CokSatanlar_Table_AynasizFotografMakineleri">
+            <End Role="Table_AynasizFotografMakineleri" EntitySet="Table_AynasizFotografMakineleri" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_Dronelar" Association="Self.FK_Table_CokSatanlar_Table_Dronelar">
+            <End Role="Table_Dronelar" EntitySet="Table_Dronelar" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_DSLRFotografMakineleri" Association="Self.FK_Table_CokSatanlar_Table_DSLRFotografMakineleri">
+            <End Role="Table_DSLRFotografMakineleri" EntitySet="Table_DSLRFotografMakineleri" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_Lensler" Association="Self.FK_Table_CokSatanlar_Table_Lensler">
+            <End Role="Table_Lensler" EntitySet="Table_Lensler" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_Markalar" Association="Self.FK_Table_CokSatanlar_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_VideoKameralar" Association="Self.FK_Table_CokSatanlar_Table_VideoKameralar">
+            <End Role="Table_VideoKameralar" EntitySet="Table_VideoKameralar" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Dronelar_Table_Markalar" Association="Self.FK_Table_Dronelar_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_Dronelar" EntitySet="Table_Dronelar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DSLRFotografMakineleri_Table_Markalar" Association="Self.FK_Table_DSLRFotografMakineleri_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_DSLRFotografMakineleri" EntitySet="Table_DSLRFotografMakineleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Hakkimizda_Table_Admin" Association="Self.FK_Table_Hakkimizda_Table_Admin">
+            <End Role="Table_Admin" EntitySet="Table_Admin" />
+            <End Role="Table_Hakkimizda" EntitySet="Table_Hakkimizda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_IletisimBilgileri_Table_Admin" Association="Self.FK_Table_IletisimBilgileri_Table_Admin">
+            <End Role="Table_Admin" EntitySet="Table_Admin" />
+            <End Role="Table_IletisimBilgileri" EntitySet="Table_IletisimBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Lensler_Table_Markalar" Association="Self.FK_Table_Lensler_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_Lensler" EntitySet="Table_Lensler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_VideoKameralar_Table_Markalar" Association="Self.FK_Table_VideoKameralar_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_VideoKameralar" EntitySet="Table_VideoKameralar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Videolar_Table_Admin" Association="Self.FK_Table_Videolar_Table_Admin">
+            <End Role="Table_Admin" EntitySet="Table_Admin" />
+            <End Role="Table_Videolar" EntitySet="Table_Videolar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fotomarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Table_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminKullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Hakkimizda" Relationship="Self.FK_Table_Hakkimizda_Table_Admin" FromRole="Table_Admin" ToRole="Table_Hakkimizda" />
+          <NavigationProperty Name="Table_IletisimBilgileri" Relationship="Self.FK_Table_IletisimBilgileri_Table_Admin" FromRole="Table_Admin" ToRole="Table_IletisimBilgileri" />
+          <NavigationProperty Name="Table_Videolar" Relationship="Self.FK_Table_Videolar_Table_Admin" FromRole="Table_Admin" ToRole="Table_Videolar" />
+        </EntityType>
+        <EntityType Name="Table_AksiyonKameralari">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaID" Type="Int32" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModelAdi" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UrunFiyati" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="UrunGorseli" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Markalar" Relationship="Self.FK_Table_AksiyonKameralari_Table_Markalar" FromRole="Table_AksiyonKameralari" ToRole="Table_Markalar" />
+          <NavigationProperty Name="Table_CokSatanlar" Relationship="Self.FK_Table_CokSatanlar_Table_AksiyonKameralari" FromRole="Table_AksiyonKameralari" ToRole="Table_CokSatanlar" />
+        </EntityType>
+        <EntityType Name="Table_AynasizFotografMakineleri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaID" Type="Int32" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModelAdi" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UrunFiyati" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="UrunGorseli" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Markalar" Relationship="Self.FK_Table_AynasizFotografMakineleri_Table_Markalar" FromRole="Table_AynasizFotografMakineleri" ToRole="Table_Markalar" />
+          <NavigationProperty Name="Table_CokSatanlar" Relationship="Self.FK_Table_CokSatanlar_Table_AynasizFotografMakineleri" FromRole="Table_AynasizFotografMakineleri" ToRole="Table_CokSatanlar" />
+        </EntityType>
+        <EntityType Name="Table_CokSatanlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="UrunID" Type="Int32" />
+          <Property Name="MarkaID" Type="Int32" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModelAdi" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UrunFiyati" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="UrunGorseli" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_AksiyonKameralari" Relationship="Self.FK_Table_CokSatanlar_Table_AksiyonKameralari" FromRole="Table_CokSatanlar" ToRole="Table_AksiyonKameralari" />
+          <NavigationProperty Name="Table_AynasizFotografMakineleri" Relationship="Self.FK_Table_CokSatanlar_Table_AynasizFotografMakineleri" FromRole="Table_CokSatanlar" ToRole="Table_AynasizFotografMakineleri" />
+          <NavigationProperty Name="Table_Dronelar" Relationship="Self.FK_Table_CokSatanlar_Table_Dronelar" FromRole="Table_CokSatanlar" ToRole="Table_Dronelar" />
+          <NavigationProperty Name="Table_DSLRFotografMakineleri" Relationship="Self.FK_Table_CokSatanlar_Table_DSLRFotografMakineleri" FromRole="Table_CokSatanlar" ToRole="Table_DSLRFotografMakineleri" />
+          <NavigationProperty Name="Table_Lensler" Relationship="Self.FK_Table_CokSatanlar_Table_Lensler" FromRole="Table_CokSatanlar" ToRole="Table_Lensler" />
+          <NavigationProperty Name="Table_Markalar" Relationship="Self.FK_Table_CokSatanlar_Table_Markalar" FromRole="Table_CokSatanlar" ToRole="Table_Markalar" />
+          <NavigationProperty Name="Table_VideoKameralar" Relationship="Self.FK_Table_CokSatanlar_Table_VideoKameralar" FromRole="Table_CokSatanlar" ToRole="Table_VideoKameralar" />
+        </EntityType>
+        <EntityType Name="Table_Dronelar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaID" Type="Int32" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModelAdi" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UrunFiyati" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="UrunGorseli" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_CokSatanlar" Relationship="Self.FK_Table_CokSatanlar_Table_Dronelar" FromRole="Table_Dronelar" ToRole="Table_CokSatanlar" />
+          <NavigationProperty Name="Table_Markalar" Relationship="Self.FK_Table_Dronelar_Table_Markalar" FromRole="Table_Dronelar" ToRole="Table_Markalar" />
+        </EntityType>
+        <EntityType Name="Table_DSLRFotografMakineleri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaID" Type="Int32" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModelAdi" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UrunFiyati" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="UrunGorseli" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_CokSatanlar" Relationship="Self.FK_Table_CokSatanlar_Table_DSLRFotografMakineleri" FromRole="Table_DSLRFotografMakineleri" ToRole="Table_CokSatanlar" />
+          <NavigationProperty Name="Table_Markalar" Relationship="Self.FK_Table_DSLRFotografMakineleri_Table_Markalar" FromRole="Table_DSLRFotografMakineleri" ToRole="Table_Markalar" />
+        </EntityType>
+        <EntityType Name="Table_Hakkimizda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminID" Type="Int32" />
+          <Property Name="HakkimizdaMetni" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Admin" Relationship="Self.FK_Table_Hakkimizda_Table_Admin" FromRole="Table_Hakkimizda" ToRole="Table_Admin" />
+        </EntityType>
+        <EntityType Name="Table_Iletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MesajKonusu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_IletisimBilgileri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminID" Type="Int32" />
+          <Property Name="TelefonNumarasi" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="EpostaAdresi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Admin" Relationship="Self.FK_Table_IletisimBilgileri_Table_Admin" FromRole="Table_IletisimBilgileri" ToRole="Table_Admin" />
+        </EntityType>
+        <EntityType Name="Table_Kaynaklar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Linkler" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_Kullanicilar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullanciAdi" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdSoyad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="CepTelefonu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_Lensler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaID" Type="Int32" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModelAdi" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UrunFiyati" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="UrunGorseli" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_CokSatanlar" Relationship="Self.FK_Table_CokSatanlar_Table_Lensler" FromRole="Table_Lensler" ToRole="Table_CokSatanlar" />
+          <NavigationProperty Name="Table_Markalar" Relationship="Self.FK_Table_Lensler_Table_Markalar" FromRole="Table_Lensler" ToRole="Table_Markalar" />
+        </EntityType>
+        <EntityType Name="Table_Markalar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_AksiyonKameralari" Relationship="Self.FK_Table_AksiyonKameralari_Table_Markalar" FromRole="Table_Markalar" ToRole="Table_AksiyonKameralari" />
+          <NavigationProperty Name="Table_AynasizFotografMakineleri" Relationship="Self.FK_Table_AynasizFotografMakineleri_Table_Markalar" FromRole="Table_Markalar" ToRole="Table_AynasizFotografMakineleri" />
+          <NavigationProperty Name="Table_CokSatanlar" Relationship="Self.FK_Table_CokSatanlar_Table_Markalar" FromRole="Table_Markalar" ToRole="Table_CokSatanlar" />
+          <NavigationProperty Name="Table_Dronelar" Relationship="Self.FK_Table_Dronelar_Table_Markalar" FromRole="Table_Markalar" ToRole="Table_Dronelar" />
+          <NavigationProperty Name="Table_DSLRFotografMakineleri" Relationship="Self.FK_Table_DSLRFotografMakineleri_Table_Markalar" FromRole="Table_Markalar" ToRole="Table_DSLRFotografMakineleri" />
+          <NavigationProperty Name="Table_Lensler" Relationship="Self.FK_Table_Lensler_Table_Markalar" FromRole="Table_Markalar" ToRole="Table_Lensler" />
+          <NavigationProperty Name="Table_VideoKameralar" Relationship="Self.FK_Table_VideoKameralar_Table_Markalar" FromRole="Table_Markalar" ToRole="Table_VideoKameralar" />
+        </EntityType>
+        <EntityType Name="Table_VideoKameralar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaID" Type="Int32" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModelAdi" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UrunFiyati" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="UrunGorseli" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_CokSatanlar" Relationship="Self.FK_Table_CokSatanlar_Table_VideoKameralar" FromRole="Table_VideoKameralar" ToRole="Table_CokSatanlar" />
+          <NavigationProperty Name="Table_Markalar" Relationship="Self.FK_Table_VideoKameralar_Table_Markalar" FromRole="Table_VideoKameralar" ToRole="Table_Markalar" />
+        </EntityType>
+        <EntityType Name="Table_Videolar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminID" Type="Int32" />
+          <Property Name="VideoSrcLinki" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Admin" Relationship="Self.FK_Table_Videolar_Table_Admin" FromRole="Table_Videolar" ToRole="Table_Admin" />
+        </EntityType>
+        <Association Name="FK_Table_Hakkimizda_Table_Admin">
+          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+          <End Role="Table_Hakkimizda" Type="Self.Table_Hakkimizda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Hakkimizda">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_IletisimBilgileri_Table_Admin">
+          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+          <End Role="Table_IletisimBilgileri" Type="Self.Table_IletisimBilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_IletisimBilgileri">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Videolar_Table_Admin">
+          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+          <End Role="Table_Videolar" Type="Self.Table_Videolar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Videolar">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_AksiyonKameralari_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_AksiyonKameralari" Type="Self.Table_AksiyonKameralari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_AksiyonKameralari">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_AksiyonKameralari">
+          <End Role="Table_AksiyonKameralari" Type="Self.Table_AksiyonKameralari" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_AksiyonKameralari">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_AynasizFotografMakineleri_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_AynasizFotografMakineleri" Type="Self.Table_AynasizFotografMakineleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_AynasizFotografMakineleri">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_AynasizFotografMakineleri">
+          <End Role="Table_AynasizFotografMakineleri" Type="Self.Table_AynasizFotografMakineleri" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_AynasizFotografMakineleri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_Dronelar">
+          <End Role="Table_Dronelar" Type="Self.Table_Dronelar" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Dronelar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_DSLRFotografMakineleri">
+          <End Role="Table_DSLRFotografMakineleri" Type="Self.Table_DSLRFotografMakineleri" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_DSLRFotografMakineleri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_Lensler">
+          <End Role="Table_Lensler" Type="Self.Table_Lensler" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Lensler">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_CokSatanlar_Table_VideoKameralar">
+          <End Role="Table_VideoKameralar" Type="Self.Table_VideoKameralar" Multiplicity="0..1" />
+          <End Role="Table_CokSatanlar" Type="Self.Table_CokSatanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_VideoKameralar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_CokSatanlar">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Dronelar_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_Dronelar" Type="Self.Table_Dronelar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Dronelar">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DSLRFotografMakineleri_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_DSLRFotografMakineleri" Type="Self.Table_DSLRFotografMakineleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_DSLRFotografMakineleri">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Lensler_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_Lensler" Type="Self.Table_Lensler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Lensler">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_VideoKameralar_Table_Markalar">
+          <End Role="Table_Markalar" Type="Self.Table_Markalar" Multiplicity="0..1" />
+          <End Role="Table_VideoKameralar" Type="Self.Table_VideoKameralar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Markalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_VideoKameralar">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fotomarketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Table_Admin" EntityType="Self.Table_Admin" />
+          <EntitySet Name="Table_AksiyonKameralari" EntityType="Self.Table_AksiyonKameralari" />
+          <EntitySet Name="Table_AynasizFotografMakineleri" EntityType="Self.Table_AynasizFotografMakineleri" />
+          <EntitySet Name="Table_CokSatanlar" EntityType="Self.Table_CokSatanlar" />
+          <EntitySet Name="Table_Dronelar" EntityType="Self.Table_Dronelar" />
+          <EntitySet Name="Table_DSLRFotografMakineleri" EntityType="Self.Table_DSLRFotografMakineleri" />
+          <EntitySet Name="Table_Hakkimizda" EntityType="Self.Table_Hakkimizda" />
+          <EntitySet Name="Table_Iletisim" EntityType="Self.Table_Iletisim" />
+          <EntitySet Name="Table_IletisimBilgileri" EntityType="Self.Table_IletisimBilgileri" />
+          <EntitySet Name="Table_Kaynaklar" EntityType="Self.Table_Kaynaklar" />
+          <EntitySet Name="Table_Kullanicilar" EntityType="Self.Table_Kullanicilar" />
+          <EntitySet Name="Table_Lensler" EntityType="Self.Table_Lensler" />
+          <EntitySet Name="Table_Markalar" EntityType="Self.Table_Markalar" />
+          <EntitySet Name="Table_VideoKameralar" EntityType="Self.Table_VideoKameralar" />
+          <EntitySet Name="Table_Videolar" EntityType="Self.Table_Videolar" />
+          <AssociationSet Name="FK_Table_Hakkimizda_Table_Admin" Association="Self.FK_Table_Hakkimizda_Table_Admin">
+            <End Role="Table_Admin" EntitySet="Table_Admin" />
+            <End Role="Table_Hakkimizda" EntitySet="Table_Hakkimizda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_IletisimBilgileri_Table_Admin" Association="Self.FK_Table_IletisimBilgileri_Table_Admin">
+            <End Role="Table_Admin" EntitySet="Table_Admin" />
+            <End Role="Table_IletisimBilgileri" EntitySet="Table_IletisimBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Videolar_Table_Admin" Association="Self.FK_Table_Videolar_Table_Admin">
+            <End Role="Table_Admin" EntitySet="Table_Admin" />
+            <End Role="Table_Videolar" EntitySet="Table_Videolar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_AksiyonKameralari_Table_Markalar" Association="Self.FK_Table_AksiyonKameralari_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_AksiyonKameralari" EntitySet="Table_AksiyonKameralari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_AksiyonKameralari" Association="Self.FK_Table_CokSatanlar_Table_AksiyonKameralari">
+            <End Role="Table_AksiyonKameralari" EntitySet="Table_AksiyonKameralari" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_AynasizFotografMakineleri_Table_Markalar" Association="Self.FK_Table_AynasizFotografMakineleri_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_AynasizFotografMakineleri" EntitySet="Table_AynasizFotografMakineleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_AynasizFotografMakineleri" Association="Self.FK_Table_CokSatanlar_Table_AynasizFotografMakineleri">
+            <End Role="Table_AynasizFotografMakineleri" EntitySet="Table_AynasizFotografMakineleri" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_Dronelar" Association="Self.FK_Table_CokSatanlar_Table_Dronelar">
+            <End Role="Table_Dronelar" EntitySet="Table_Dronelar" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_DSLRFotografMakineleri" Association="Self.FK_Table_CokSatanlar_Table_DSLRFotografMakineleri">
+            <End Role="Table_DSLRFotografMakineleri" EntitySet="Table_DSLRFotografMakineleri" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_Lensler" Association="Self.FK_Table_CokSatanlar_Table_Lensler">
+            <End Role="Table_Lensler" EntitySet="Table_Lensler" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_Markalar" Association="Self.FK_Table_CokSatanlar_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_CokSatanlar_Table_VideoKameralar" Association="Self.FK_Table_CokSatanlar_Table_VideoKameralar">
+            <End Role="Table_VideoKameralar" EntitySet="Table_VideoKameralar" />
+            <End Role="Table_CokSatanlar" EntitySet="Table_CokSatanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Dronelar_Table_Markalar" Association="Self.FK_Table_Dronelar_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_Dronelar" EntitySet="Table_Dronelar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DSLRFotografMakineleri_Table_Markalar" Association="Self.FK_Table_DSLRFotografMakineleri_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_DSLRFotografMakineleri" EntitySet="Table_DSLRFotografMakineleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Lensler_Table_Markalar" Association="Self.FK_Table_Lensler_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_Lensler" EntitySet="Table_Lensler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_VideoKameralar_Table_Markalar" Association="Self.FK_Table_VideoKameralar_Table_Markalar">
+            <End Role="Table_Markalar" EntitySet="Table_Markalar" />
+            <End Role="Table_VideoKameralar" EntitySet="Table_VideoKameralar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fotomarketModelStoreContainer" CdmEntityContainer="fotomarketEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="fotomarketModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Admin">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Admin">
+              <MappingFragment StoreEntitySet="Table_Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdminKullaniciAdi" ColumnName="AdminKullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_AksiyonKameralari">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_AksiyonKameralari">
+              <MappingFragment StoreEntitySet="Table_AksiyonKameralari">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="ModelAdi" ColumnName="ModelAdi" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="UrunGorseli" ColumnName="UrunGorseli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_AynasizFotografMakineleri">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_AynasizFotografMakineleri">
+              <MappingFragment StoreEntitySet="Table_AynasizFotografMakineleri">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="ModelAdi" ColumnName="ModelAdi" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="UrunGorseli" ColumnName="UrunGorseli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_CokSatanlar">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_CokSatanlar">
+              <MappingFragment StoreEntitySet="Table_CokSatanlar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="ModelAdi" ColumnName="ModelAdi" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="UrunGorseli" ColumnName="UrunGorseli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Dronelar">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Dronelar">
+              <MappingFragment StoreEntitySet="Table_Dronelar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="ModelAdi" ColumnName="ModelAdi" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="UrunGorseli" ColumnName="UrunGorseli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_DSLRFotografMakineleri">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_DSLRFotografMakineleri">
+              <MappingFragment StoreEntitySet="Table_DSLRFotografMakineleri">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="ModelAdi" ColumnName="ModelAdi" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="UrunGorseli" ColumnName="UrunGorseli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Hakkimizda">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Hakkimizda">
+              <MappingFragment StoreEntitySet="Table_Hakkimizda">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="HakkimizdaMetni" ColumnName="HakkimizdaMetni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Iletisim">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Iletisim">
+              <MappingFragment StoreEntitySet="Table_Iletisim">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MesajKonusu" ColumnName="MesajKonusu" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_IletisimBilgileri">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_IletisimBilgileri">
+              <MappingFragment StoreEntitySet="Table_IletisimBilgileri">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="TelefonNumarasi" ColumnName="TelefonNumarasi" />
+                <ScalarProperty Name="EpostaAdresi" ColumnName="EpostaAdresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Kaynaklar">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Kaynaklar">
+              <MappingFragment StoreEntitySet="Table_Kaynaklar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Linkler" ColumnName="Linkler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Kullanicilar">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Kullanicilar">
+              <MappingFragment StoreEntitySet="Table_Kullanicilar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KullanciAdi" ColumnName="KullanciAdi" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="CepTelefonu" ColumnName="CepTelefonu" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Lensler">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Lensler">
+              <MappingFragment StoreEntitySet="Table_Lensler">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="ModelAdi" ColumnName="ModelAdi" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="UrunGorseli" ColumnName="UrunGorseli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Markalar">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Markalar">
+              <MappingFragment StoreEntitySet="Table_Markalar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_VideoKameralar">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_VideoKameralar">
+              <MappingFragment StoreEntitySet="Table_VideoKameralar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="ModelAdi" ColumnName="ModelAdi" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="UrunGorseli" ColumnName="UrunGorseli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Videolar">
+            <EntityTypeMapping TypeName="fotomarketModel.Table_Videolar">
+              <MappingFragment StoreEntitySet="Table_Videolar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="VideoSrcLinki" ColumnName="VideoSrcLinki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

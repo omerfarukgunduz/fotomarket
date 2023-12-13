@@ -1,0 +1,42 @@
+﻿@using fotomarket.Models
+@model List<Table_Videolar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+<div style="text-align: center;">
+    <h2>Videolar Bölümü Düzenleme Sayfası</h2>
+</div>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <th scope="row">ID</th>
+                        <td>@x.ID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Admin ID</th>
+                        <td>@x.AdminID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Video Src Linki</th>
+                        <td>@x.VideoSrcLinki</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Güncelle</th>
+                        <td><a href="/Videolar/VideoGetir/@x.ID" class="btn btn-warning">Güncelle</a></td>
+                    </tr>
+                    
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+

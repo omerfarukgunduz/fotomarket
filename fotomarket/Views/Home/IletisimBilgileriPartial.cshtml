@@ -1,0 +1,12 @@
+﻿@using fotomarket.Models
+@model List<fotomarket.Models.Table_IletisimBilgileri>
+
+@foreach (var x in Model)
+{
+    <div>
+        <p><i class="fas fa-phone"></i> Telefon: +90 @x.TelefonNumarasi</p>
+        <p>
+            <i class="fas fa-envelope"></i> E-posta: @x.EpostaAdresi
+        </p>
+    </div>
+}

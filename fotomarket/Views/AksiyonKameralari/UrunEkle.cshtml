@@ -1,0 +1,30 @@
+﻿@model fotomarket.Models.Table_AksiyonKameralari
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div style="text-align: center;">
+    <h2>Ürün Ekle</h2>
+</div>
+
+<form class="form-group" method="post" style="margin-left: 5px;">
+
+    <br />
+    <b>Marka ID:</b>
+    @Html.TextBoxFor(x => x.MarkaID, new { @class = "form-control", required = "required" })
+    <br />
+    <b>Marka Adı:</b>
+    @Html.TextBoxFor(x => x.MarkaAdi, new { @class = "form-control", required = "required" })
+    <br />
+    <b>Model Adı: </b>
+    @Html.TextBoxFor(x => x.ModelAdi, new { @class = "form-control", required = "required" })
+    <br />
+    <b>Fiyat</b>
+    @Html.TextBoxFor(x => x.UrunFiyati, new { @class = "form-control", required = "required" })
+    <br />
+    <b>Görsel Linki</b>
+    @Html.TextBoxFor(x => x.UrunGorseli, new { @class = "form-control", required = "required" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
