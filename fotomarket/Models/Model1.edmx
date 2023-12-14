@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="fotomarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="fotomarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -14,14 +14,6 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="Table_Admin">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AdminKullaniciAdi" Type="varchar" MaxLength="50" />
-          <Property Name="Sifre" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Table_AksiyonKameralari">
           <Key>
@@ -84,7 +76,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AdminID" Type="int" />
+          <Property Name="KullaniciID" Type="int" />
           <Property Name="HakkimizdaMetni" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Table_Iletisim">
@@ -102,7 +94,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AdminID" Type="int" />
+          <Property Name="KullaniciID" Type="int" />
           <Property Name="TelefonNumarasi" Type="nchar" MaxLength="20" />
           <Property Name="EpostaAdresi" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -124,6 +116,7 @@
           <Property Name="TC" Type="nvarchar" MaxLength="11" />
           <Property Name="CepTelefonu" Type="nvarchar" MaxLength="10" />
           <Property Name="Sifre" Type="varchar" MaxLength="30" />
+          <Property Name="Rol" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Table_Lensler">
           <Key>
@@ -159,7 +152,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AdminID" Type="int" />
+          <Property Name="KullaniciID" Type="int" />
           <Property Name="VideoSrcLinki" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_Table_AksiyonKameralari_Table_Markalar">
@@ -294,27 +287,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Table_Hakkimizda_Table_Admin">
-          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+        <Association Name="FK_Table_Hakkimizda_Table_Kullanicilar">
+          <End Role="Table_Kullanicilar" Type="Self.Table_Kullanicilar" Multiplicity="0..1" />
           <End Role="Table_Hakkimizda" Type="Self.Table_Hakkimizda" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Table_Admin">
+            <Principal Role="Table_Kullanicilar">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Table_Hakkimizda">
-              <PropertyRef Name="AdminID" />
+              <PropertyRef Name="KullaniciID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Table_IletisimBilgileri_Table_Admin">
-          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+        <Association Name="FK_Table_IletisimBilgileri_Table_Kullanicilar">
+          <End Role="Table_Kullanicilar" Type="Self.Table_Kullanicilar" Multiplicity="0..1" />
           <End Role="Table_IletisimBilgileri" Type="Self.Table_IletisimBilgileri" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Table_Admin">
+            <Principal Role="Table_Kullanicilar">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Table_IletisimBilgileri">
-              <PropertyRef Name="AdminID" />
+              <PropertyRef Name="KullaniciID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -342,21 +335,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Table_Videolar_Table_Admin">
-          <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
+        <Association Name="FK_Table_Videolar_Table_Kullanicilar">
+          <End Role="Table_Kullanicilar" Type="Self.Table_Kullanicilar" Multiplicity="0..1" />
           <End Role="Table_Videolar" Type="Self.Table_Videolar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Table_Admin">
+            <Principal Role="Table_Kullanicilar">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Table_Videolar">
-              <PropertyRef Name="AdminID" />
+              <PropertyRef Name="KullaniciID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="fotomarketModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Table_Admin" EntityType="Self.Table_Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table_AksiyonKameralari" EntityType="Self.Table_AksiyonKameralari" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table_AynasizFotografMakineleri" EntityType="Self.Table_AynasizFotografMakineleri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table_CokSatanlar" EntityType="Self.Table_CokSatanlar" Schema="dbo" store:Type="Tables" />
@@ -415,12 +407,12 @@
             <End Role="Table_Markalar" EntitySet="Table_Markalar" />
             <End Role="Table_DSLRFotografMakineleri" EntitySet="Table_DSLRFotografMakineleri" />
           </AssociationSet>
-          <AssociationSet Name="FK_Table_Hakkimizda_Table_Admin" Association="Self.FK_Table_Hakkimizda_Table_Admin">
-            <End Role="Table_Admin" EntitySet="Table_Admin" />
+          <AssociationSet Name="FK_Table_Hakkimizda_Table_Kullanicilar" Association="Self.FK_Table_Hakkimizda_Table_Kullanicilar">
+            <End Role="Table_Kullanicilar" EntitySet="Table_Kullanicilar" />
             <End Role="Table_Hakkimizda" EntitySet="Table_Hakkimizda" />
           </AssociationSet>
-          <AssociationSet Name="FK_Table_IletisimBilgileri_Table_Admin" Association="Self.FK_Table_IletisimBilgileri_Table_Admin">
-            <End Role="Table_Admin" EntitySet="Table_Admin" />
+          <AssociationSet Name="FK_Table_IletisimBilgileri_Table_Kullanicilar" Association="Self.FK_Table_IletisimBilgileri_Table_Kullanicilar">
+            <End Role="Table_Kullanicilar" EntitySet="Table_Kullanicilar" />
             <End Role="Table_IletisimBilgileri" EntitySet="Table_IletisimBilgileri" />
           </AssociationSet>
           <AssociationSet Name="FK_Table_Lensler_Table_Markalar" Association="Self.FK_Table_Lensler_Table_Markalar">
@@ -431,13 +423,12 @@
             <End Role="Table_Markalar" EntitySet="Table_Markalar" />
             <End Role="Table_VideoKameralar" EntitySet="Table_VideoKameralar" />
           </AssociationSet>
-          <AssociationSet Name="FK_Table_Videolar_Table_Admin" Association="Self.FK_Table_Videolar_Table_Admin">
-            <End Role="Table_Admin" EntitySet="Table_Admin" />
+          <AssociationSet Name="FK_Table_Videolar_Table_Kullanicilar" Association="Self.FK_Table_Videolar_Table_Kullanicilar">
+            <End Role="Table_Kullanicilar" EntitySet="Table_Kullanicilar" />
             <End Role="Table_Videolar" EntitySet="Table_Videolar" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="fotomarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -541,6 +532,8 @@
           <Property Name="AdminID" Type="Int32" />
           <Property Name="HakkimizdaMetni" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Table_Admin" Relationship="Self.FK_Table_Hakkimizda_Table_Admin" FromRole="Table_Hakkimizda" ToRole="Table_Admin" />
+          <Property Name="KullaniciID" Type="Int32" />
+          <NavigationProperty Name="Table_Kullanicilar" Relationship="fotomarketModel.FK_Table_Hakkimizda_Table_Kullanicilar" FromRole="Table_Hakkimizda" ToRole="Table_Kullanicilar" />
         </EntityType>
         <EntityType Name="Table_Iletisim">
           <Key>
@@ -561,6 +554,8 @@
           <Property Name="TelefonNumarasi" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="EpostaAdresi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Table_Admin" Relationship="Self.FK_Table_IletisimBilgileri_Table_Admin" FromRole="Table_IletisimBilgileri" ToRole="Table_Admin" />
+          <Property Name="KullaniciID" Type="Int32" />
+          <NavigationProperty Name="Table_Kullanicilar" Relationship="fotomarketModel.FK_Table_IletisimBilgileri_Table_Kullanicilar" FromRole="Table_IletisimBilgileri" ToRole="Table_Kullanicilar" />
         </EntityType>
         <EntityType Name="Table_Kaynaklar">
           <Key>
@@ -580,6 +575,10 @@
           <Property Name="TC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="CepTelefonu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Sifre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Hakkimizda" Relationship="fotomarketModel.FK_Table_Hakkimizda_Table_Kullanicilar" FromRole="Table_Kullanicilar" ToRole="Table_Hakkimizda" />
+          <NavigationProperty Name="Table_IletisimBilgileri" Relationship="fotomarketModel.FK_Table_IletisimBilgileri_Table_Kullanicilar" FromRole="Table_Kullanicilar" ToRole="Table_IletisimBilgileri" />
+          <NavigationProperty Name="Table_Videolar" Relationship="fotomarketModel.FK_Table_Videolar_Table_Kullanicilar" FromRole="Table_Kullanicilar" ToRole="Table_Videolar" />
         </EntityType>
         <EntityType Name="Table_Lensler">
           <Key>
@@ -629,6 +628,8 @@
           <Property Name="AdminID" Type="Int32" />
           <Property Name="VideoSrcLinki" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Table_Admin" Relationship="Self.FK_Table_Videolar_Table_Admin" FromRole="Table_Videolar" ToRole="Table_Admin" />
+          <Property Name="KullaniciID" Type="Int32" />
+          <NavigationProperty Name="Table_Kullanicilar" Relationship="fotomarketModel.FK_Table_Videolar_Table_Kullanicilar" FromRole="Table_Videolar" ToRole="Table_Kullanicilar" />
         </EntityType>
         <Association Name="FK_Table_Hakkimizda_Table_Admin">
           <End Role="Table_Admin" Type="Self.Table_Admin" Multiplicity="0..1" />
@@ -903,7 +904,55 @@
             <End Role="Table_Markalar" EntitySet="Table_Markalar" />
             <End Role="Table_VideoKameralar" EntitySet="Table_VideoKameralar" />
           </AssociationSet>
+          <AssociationSet Name="FK_Table_Hakkimizda_Table_Kullanicilar" Association="fotomarketModel.FK_Table_Hakkimizda_Table_Kullanicilar">
+            <End Role="Table_Kullanicilar" EntitySet="Table_Kullanicilar" />
+            <End Role="Table_Hakkimizda" EntitySet="Table_Hakkimizda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_IletisimBilgileri_Table_Kullanicilar" Association="fotomarketModel.FK_Table_IletisimBilgileri_Table_Kullanicilar">
+            <End Role="Table_Kullanicilar" EntitySet="Table_Kullanicilar" />
+            <End Role="Table_IletisimBilgileri" EntitySet="Table_IletisimBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Videolar_Table_Kullanicilar" Association="fotomarketModel.FK_Table_Videolar_Table_Kullanicilar">
+            <End Role="Table_Kullanicilar" EntitySet="Table_Kullanicilar" />
+            <End Role="Table_Videolar" EntitySet="Table_Videolar" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Table_Hakkimizda_Table_Kullanicilar">
+          <End Type="fotomarketModel.Table_Kullanicilar" Role="Table_Kullanicilar" Multiplicity="0..1" />
+          <End Type="fotomarketModel.Table_Hakkimizda" Role="Table_Hakkimizda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Kullanicilar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Hakkimizda">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_IletisimBilgileri_Table_Kullanicilar">
+          <End Type="fotomarketModel.Table_Kullanicilar" Role="Table_Kullanicilar" Multiplicity="0..1" />
+          <End Type="fotomarketModel.Table_IletisimBilgileri" Role="Table_IletisimBilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Kullanicilar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_IletisimBilgileri">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Videolar_Table_Kullanicilar">
+          <End Type="fotomarketModel.Table_Kullanicilar" Role="Table_Kullanicilar" Multiplicity="0..1" />
+          <End Type="fotomarketModel.Table_Videolar" Role="Table_Videolar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Kullanicilar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table_Videolar">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -918,15 +967,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Table_Admin">
-            <EntityTypeMapping TypeName="fotomarketModel.Table_Admin">
-              <MappingFragment StoreEntitySet="Table_Admin">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AdminKullaniciAdi" ColumnName="AdminKullaniciAdi" />
-                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -994,8 +1034,8 @@
           <EntitySetMapping Name="Table_Hakkimizda">
             <EntityTypeMapping TypeName="fotomarketModel.Table_Hakkimizda">
               <MappingFragment StoreEntitySet="Table_Hakkimizda">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
                 <ScalarProperty Name="HakkimizdaMetni" ColumnName="HakkimizdaMetni" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1014,8 +1054,8 @@
           <EntitySetMapping Name="Table_IletisimBilgileri">
             <EntityTypeMapping TypeName="fotomarketModel.Table_IletisimBilgileri">
               <MappingFragment StoreEntitySet="Table_IletisimBilgileri">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
                 <ScalarProperty Name="TelefonNumarasi" ColumnName="TelefonNumarasi" />
                 <ScalarProperty Name="EpostaAdresi" ColumnName="EpostaAdresi" />
               </MappingFragment>
@@ -1032,6 +1072,7 @@
           <EntitySetMapping Name="Table_Kullanicilar">
             <EntityTypeMapping TypeName="fotomarketModel.Table_Kullanicilar">
               <MappingFragment StoreEntitySet="Table_Kullanicilar">
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="KullanciAdi" ColumnName="KullanciAdi" />
                 <ScalarProperty Name="Eposta" ColumnName="Eposta" />
@@ -1077,8 +1118,8 @@
           <EntitySetMapping Name="Table_Videolar">
             <EntityTypeMapping TypeName="fotomarketModel.Table_Videolar">
               <MappingFragment StoreEntitySet="Table_Videolar">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
                 <ScalarProperty Name="VideoSrcLinki" ColumnName="VideoSrcLinki" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,0 +1,43 @@
+﻿@model fotomarket.Models.Table_Kullanicilar
+
+@{
+    ViewBag.Title = "KullaniciGetir";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div style="text-align: center;">
+    <h2>Kullanıcı Güncelleme Sayfası</h2>
+</div>
+
+@using (Html.BeginForm("KullaniciGuncelle", "Kullanicilar", FormMethod.Post, new { style = "margin-left: 5px;" }))
+{
+    <b> ID</b>
+    <br />
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    <b>Kullanıcı Adı:</b>
+    @Html.TextBoxFor(x => x.KullanciAdi, new { @class = "form-control", required = "required" })
+    <br />
+    <b>Şifre:</b>
+    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control", required = "required" })
+    <br />
+    <b>Rol:</b>
+    @Html.TextBoxFor(x => x.Rol, new { @class = "form-control", required = "required", @readonly = "readonly" })
+    <br />
+    <b>E-posta:</b>
+    @Html.TextBoxFor(x => x.Eposta, new { @class = "form-control", required = "required" })
+    <br />
+    <b>Ad Soyad:</b>
+    @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control", required = "required" })
+    <br />
+    <b>TC Kimlik Numarası:</b>
+    @Html.TextBoxFor(x => x.TC, new { @class = "form-control", required = "required" })
+    <br />
+    <b>Cep Telefonu:</b>
+    @Html.TextBoxFor(x => x.CepTelefonu, new { @class = "form-control", required = "required" })
+    <br />
+
+    <button class="btn btn-info">Kaydet</button>
+    <br />
+
+}

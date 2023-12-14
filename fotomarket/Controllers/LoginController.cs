@@ -10,7 +10,7 @@ namespace fotomarket.Controllers
 {
     [AllowAnonymous]
 
-    public class KullaniciLoginController : Controller
+    public class LoginController : Controller
     {
         // GET: KullaniciLogin
         fotomarketEntities data = new fotomarketEntities();
@@ -30,11 +30,13 @@ namespace fotomarket.Controllers
                 FormsAuthentication.SetAuthCookie(kullanici.Eposta, false);
                 Session["Eposta"] = kullanici.Eposta.ToString();
                 Session["KullanciAdi"] = kullanici.AdSoyad;
+                Session["Rol"] = kullanici.Rol;
+
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                return RedirectToAction("Index", "KullaniciLogin");
+                return RedirectToAction("Index", "Login");
             }
         }
 

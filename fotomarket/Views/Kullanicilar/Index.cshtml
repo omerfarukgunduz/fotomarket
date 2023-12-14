@@ -21,6 +21,8 @@
                     <th scope="col">Sifre</th>
                     <th scope="col">Cep Telefonu</th>
                     <th scope="col">TC Kimlik No</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Güncelle</th>
                     <th scope="col">Sil</th>
                 </tr>
             </thead>
@@ -36,6 +38,8 @@
                         <th scope="col">@x.Sifre</th>
                         <th scope="col">@x.CepTelefonu</th>
                         <th scope="col">@x.TC</th>
+                        <th scope="col">@x.Rol</th>
+                        <th><a href="/Kullanicilar/KullaniciGetir/@x.ID" class="btn btn-warning">Güncelle</a></th>
                         <th><a href="/Kullanicilar/KullaniciSil/@x.ID" class="btn btn-danger sil">Sil</a></th>
                     </tr>
                 }
@@ -43,3 +47,30 @@
         </table>
     </div>
 </div>
+
+<a href="/Kullanicilar/KullaniciEkle" class="btn btn-primary" style="margin-left: 5px;">Yeni Kullanıcı Ekle</a>
+
+<br />
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var silButtons = document.getElementsByClassName("sil");
+
+        for (var i = 0; i < silButtons.length; i++) {
+            silButtons[i].addEventListener("click", function (event) {
+                var ıd = this.getAttribute('href').split('/').pop();
+                if (ıd === "1") {
+                    event.preventDefault();
+                    setTimeout(function () {
+                        alert('SÜPER ADMİN SİLİNEMEZ ! ');
+                        location.reload();
+                    }, 100);
+                } else {
+
+                    window.location.href = '/Kullanicilar/KullaniciSil/' + ıd;
+                }
+            });
+        }
+    });
+</script>

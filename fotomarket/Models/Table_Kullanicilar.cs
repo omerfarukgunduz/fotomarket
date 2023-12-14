@@ -14,6 +14,14 @@ namespace fotomarket.Models
     
     public partial class Table_Kullanicilar
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Table_Kullanicilar()
+        {
+            this.Table_Hakkimizda = new HashSet<Table_Hakkimizda>();
+            this.Table_IletisimBilgileri = new HashSet<Table_IletisimBilgileri>();
+            this.Table_Videolar = new HashSet<Table_Videolar>();
+        }
+    
         public int ID { get; set; }
         public string KullanciAdi { get; set; }
         public string Eposta { get; set; }
@@ -21,5 +29,13 @@ namespace fotomarket.Models
         public string TC { get; set; }
         public string CepTelefonu { get; set; }
         public string Sifre { get; set; }
+        public string Rol { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Table_Hakkimizda> Table_Hakkimizda { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Table_IletisimBilgileri> Table_IletisimBilgileri { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Table_Videolar> Table_Videolar { get; set; }
     }
 }

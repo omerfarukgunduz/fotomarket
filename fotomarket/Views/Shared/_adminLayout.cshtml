@@ -89,9 +89,9 @@
 
     <div class="sidebar">
 
-        @if (Session["AdminKullaniciAdi"] != null)
+        @if (Session["KullanciAdi"] != null)
         {
-            <a href="#"><i class="fas fa-user"></i> Hoşgeldin @Session["AdminKullaniciAdi"]</a>
+            <a href="#"><i class="fas fa-user"></i> Hoşgeldin @Session["KullanciAdi"]</a>
         }        
         <a href="/DslrMakineler/Index/"><i class="fas fa-camera"></i> DSLR Makineler</a>
         <a href="/AynasizMakineler/Index/"><i class="fas fa-camera-retro"></i> Aynasız Makineler</a>
@@ -102,11 +102,10 @@
         <a href="/CokSatanlar/Index/"><i class="fas fa-star"></i> Çok Satanlar</a>
         <a href="/Kullanicilar/Index/"><i class="fas fa-users"></i> Kullanıcılar</a>
         <a href="/Mesajlar/Index/"><i class="fas fa-envelope"></i> Mesajlar</a>
-        <a href="/Adminler/Index/"><i class="fas fa-user-shield"></i> Adminler</a>
         <a href="/Videolar/Index/"><i class="fab fa-youtube"></i> Videolar</a>
         <a href="/HakkimizdaBilgiler/Index/"><i class="fas fa-info-circle"></i> Hakkımızda</a>
         <a href="/IletisimBilgiler/Index/"><i class="fas fa-address-book"></i> İletişim Bilgileri</a>
-        <a href="/AdminLogin/LogOut/"><i class="fas fa-sign-out-alt"></i> Çıkış</a>
+        <a href="/Login/LogOut/"><i class="fas fa-sign-out-alt"></i> Çıkış</a>
     </div>
 
 

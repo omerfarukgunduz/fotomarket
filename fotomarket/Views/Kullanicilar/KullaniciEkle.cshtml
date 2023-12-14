@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "KullaniciEkle";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card" style="margin-top: 10px;">
+                <div class="card-header">
+                    <h2 class="text-center">KULLANICI EKLE</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" id="kayitol" class="form-group">
+                        <div class="form-group">
+                            <label for="KullaniciAdi">Kullanıcı Adı:</label>
+                            <input type="text" class="form-control" id="KullaniciAdi" name="KullanciAdi" placeholder="Kullanıcı adınızı giriniz..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Rol">Rol:</label>
+                            <input type="text" class="form-control" id="rol" name="Rol" placeholder=" admin veya kullanici yazınız..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Sifre">Şifre:</label>
+                            <input type="password" class="form-control" id="Sifre" name="Sifre" placeholder="Şifrenizi giriniz..." required>
+                            <span toggle="#Sifre" class="toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Eposta">E-posta:</label>
+                            <input type="email" class="form-control" id="Eposta" name="Eposta" placeholder="E-posta adresinizi giriniz..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="AdSoyad">Ad Soyad:</label>
+                            <input type="text" class="form-control" id="AdSoyad" name="AdSoyad" placeholder="Adınızı ve Soyadınızı giriniz..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="TC">TC Kimlik No:</label>
+                            <input type="text" class="form-control" id="TC" name="TC" placeholder="TC Kimlik numaranızı giriniz (sadece rakam, 11 karakter)..." required>
+                            <small class="text-muted">TC Kimlik numarası 11 karakter olmalıdır ve sadece rakam içermelidir.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="CepTelefonu">Cep Telefonu:</label>
+                            <input type="tel" class="form-control" id="CepTelefonu" name="CepTelefonu" placeholder="Cep telefon numaranızı giriniz (sadece rakam, 10 karakter)..." required>
+                            <small class="text-muted">Cep telefon numarası 10 karakter olmalıdır ve sadece rakam içermelidir.</small>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Kullanıcı Ekle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<style>
+
+
+
+    .main {
+        margin-top: 100px;
+        color: rgb(0, 0, 0);
+        text-align: center;
+    }
+
+        .main h2 {
+            font-family: Arial, sans-serif;
+        }
+
+        .main input {
+            height: 50px;
+            width: 350px;
+            border-radius: 5px;
+            padding-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        .main button {
+            height: 50px;
+            width: 350px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: rgb(81, 81, 81);
+            border: 2px solid black;
+            color: rgb(255, 255, 255);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+            .main button:hover {
+                background-color: rgb(220, 251, 110);
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+                color: black;
+            }
+
+        .main a {
+            color: aqua;
+            font-weight: bold;
+            text-decoration: none;
+            width: 350px;
+            overflow: hidden;
+        }
+</style>
+

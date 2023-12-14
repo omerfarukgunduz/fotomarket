@@ -17,7 +17,9 @@ namespace fotomarket.Models
         public int ID { get; set; }
         public Nullable<int> AdminID { get; set; }
         public string HakkimizdaMetni { get; set; }
+        public Nullable<int> KullaniciID { get; set; }
     
         public virtual Table_Admin Table_Admin { get; set; }
+        public virtual Table_Kullanicilar Table_Kullanicilar { get; set; }
     }
 }

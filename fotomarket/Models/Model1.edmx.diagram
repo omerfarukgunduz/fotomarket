@@ -37,6 +37,9 @@
         <AssociationConnector Association="fotomarketModel.FK_Table_DSLRFotografMakineleri_Table_Markalar" ManuallyRouted="false" />
         <AssociationConnector Association="fotomarketModel.FK_Table_Lensler_Table_Markalar" ManuallyRouted="false" />
         <AssociationConnector Association="fotomarketModel.FK_Table_VideoKameralar_Table_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_Hakkimizda_Table_Kullanicilar" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_IletisimBilgileri_Table_Kullanicilar" />
+        <AssociationConnector Association="fotomarketModel.FK_Table_Videolar_Table_Kullanicilar" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
