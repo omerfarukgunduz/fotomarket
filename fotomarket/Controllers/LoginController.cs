@@ -31,8 +31,13 @@ namespace fotomarket.Controllers
                 Session["Eposta"] = kullanici.Eposta.ToString();
                 Session["KullanciAdi"] = kullanici.AdSoyad;
                 Session["Rol"] = kullanici.Rol;
+                if (kullanici.Rol == "admin")
+                {
+                    return RedirectToAction("Index", "Kullanicilar");
 
-                return RedirectToAction("Index", "Home");
+                }
+                else
+                { return RedirectToAction("Index", "Home"); }
             }
             else
             {
