@@ -1,4 +1,5 @@
-﻿using fotomarket.Models;
+﻿using fotomarket.Attribute;
+using fotomarket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using System.Web.Mvc;
 
 namespace fotomarket.Controllers
 {
+    [AdminAuthorizeAttribute]
+
     public class KullanicilarController : Controller
     {
         // GET: Kullanicilar

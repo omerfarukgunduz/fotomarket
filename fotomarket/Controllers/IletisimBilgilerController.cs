@@ -1,4 +1,5 @@
-﻿using fotomarket.Models;
+﻿using fotomarket.Attribute;
+using fotomarket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using System.Web.Mvc;
 
 namespace fotomarket.Controllers
 {
+    [AdminAuthorizeAttribute]
+
     public class IletisimBilgilerController : Controller
     {
         // GET: IletisimBilgiler
@@ -27,7 +30,7 @@ namespace fotomarket.Controllers
         public ActionResult IletisimBilgileriGuncelle(Table_IletisimBilgileri x)
         {
             var video = data.Table_IletisimBilgileri.Find(x.ID);
-            video.AdminID = x.AdminID;
+            video.KullaniciID = x.KullaniciID;
             video.TelefonNumarasi = x.TelefonNumarasi;
             video.EpostaAdresi = x.EpostaAdresi;
             data.SaveChanges();

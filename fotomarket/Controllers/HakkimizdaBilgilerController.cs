@@ -1,4 +1,5 @@
-﻿using fotomarket.Models;
+﻿using fotomarket.Attribute;
+using fotomarket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using System.Web.Mvc;
 
 namespace fotomarket.Controllers
 {
+    [AdminAuthorizeAttribute]
+
     public class HakkimizdaBilgilerController : Controller
     {
         // GET: HakkimizdaBilgiler
@@ -26,7 +29,7 @@ namespace fotomarket.Controllers
         public ActionResult HakkimizdaGuncelle(Table_Hakkimizda x)
         {
             var video = data.Table_Hakkimizda.Find(x.ID);
-            video.AdminID = x.AdminID;
+            video.KullaniciID = x.KullaniciID;
             video.HakkimizdaMetni = x.HakkimizdaMetni;
             data.SaveChanges();
             return RedirectToAction("Index");
