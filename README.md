@@ -2,15 +2,27 @@ PROJE TANITIMI
 
 
 Konu olarak fotoğrafçılık ekipmanları satan bir E-ticaret sitesi seçilmiştir.
+
+
 6 adet kategori belirlenmiştir. Bunlar aşağıda sıralanmıştır.
+
+
 •	DSLR Fotoğraf Makineleri
+
 •	Aynasız Fotoğraf Makineleri 
+
 •	Video Kameralar 
+
 •	Aksiyon Kameraları 
+
 •	Dronelar 
+
 •	Lensler
+
 Sitede 2 farklı kullanıcı rolü vardır. Bunlar admin ve kullanıcıdır.
+
 Kullanıcılar ürünleri görüntüleyebilmekte ve firma ile iletişime geçebilmektir.
+
 ![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/0b708bbf-f6d0-441f-b9ef-ac80d182c1f6)
 ![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/112bc87a-58ab-4cee-bb9e-8a8520257382)
 ![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/008e75e5-5835-40d2-b380-c73529e2675a)
