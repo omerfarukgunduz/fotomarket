@@ -1,4 +1,6 @@
 PROJE TANITIMI
+
+
 Konu olarak fotoğrafçılık ekipmanları satan bir E-ticaret sitesi seçilmiştir.
 6 adet kategori belirlenmiştir. Bunlar aşağıda sıralanmıştır.
 •	DSLR Fotoğraf Makineleri
