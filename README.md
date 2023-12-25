@@ -18,12 +18,19 @@ Kullanıcılar ürünleri görüntüleyebilmekte ve firma ile iletişime geçebi
 
 Admin Panelinde birçok işlem yapılabilmektedir. Bunlar aşağıda belirtilmiştir.
 •	Her kategori için ürün ekleme, silme, güncelleme 
+
 •	Çok satanları güncelleme 
+
 •	Başlamadan önce bölümündeki videoları güncelleme
+
 •	İletişim bilgilerini güncelleme
+
 •	Hakkımızda metnini güncelleme
+
 •	Mesajları görüntüleme
+
 •	Kullanıcı yönetimi 
+
 ![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/13a33831-8f29-4f6f-9422-b92c24929d17)
 ![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/b195d21a-199e-4852-a65e-9adf72c257e2)
 ![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/0d0e8231-2244-4115-bf3a-944ef582f87b)
@@ -31,6 +38,7 @@ Admin Panelinde birçok işlem yapılabilmektedir. Bunlar aşağıda belirtilmi�
 ![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/ac970f85-7b1a-45dd-af8a-a6a34d8c0a88)
 
 İŞ KURALLARI
+
 
 1) Sitemizde 1 kullanıcı girişi 2 farklı kullanıcı rolü vardır. Bunlar admin ve kullanıcıdır.
 2) Adminler sisteme sadece diğer adminler tarafından kaydedilebilmektedir. Dışardan kayıt olma şansları yoktur.
@@ -53,10 +61,12 @@ Admin Panelinde birçok işlem yapılabilmektedir. Bunlar aşağıda belirtilmi�
 
 
 VARLIK BAĞINTI DİYAGRAMI
+
  ![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/4972077b-fd0c-45f5-91d3-f7518a37fc64)
 
 İLİŞKİSEL ŞEMA
-![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/0ce3b391-d82b-44e5-a542-8ad16ba77880)
+
+![image](https://github.com/omerfarukgunduz/fotomarket/assets/97338737/e2e3bae9-8b32-4ddd-9f42-e2ea5f889852)
 
  
 
